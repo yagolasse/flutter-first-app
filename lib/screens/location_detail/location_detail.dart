@@ -4,23 +4,35 @@ import 'image_banner.dart';
 
 import 'text_section.dart';
 
+import '../../models/location.dart';
+
 class LocationDetail extends StatelessWidget {
+
+  final int _locationId;
+
+  LocationDetail(this._locationId);
+
   @override
   Widget build(BuildContext context) {
+    final location = Location.fetchByID(_locationId);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Location Detail'),
+        title: Text(location.name),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ImageBanner("assets/images/kiyomizu-dera.jpg"),
-          TextSection("summary", "poasjgoasijg0842utksg 0áuig 084 tjlksg k"),
-          TextSection("summary", "poasjgoasijg0842utksg 0áuig 084 tjlksg k"),
-          TextSection("summary", "poasjgoasijg0842utksg 0áuig 084 tjlksg k"),
-        ],
+          ImageBanner(location.imagePath),
+        ]..addAll(textSection(location)),
       ),
     );
+  }
+
+  List<Widget> textSection(Location location) {
+    return location.facts
+        .map((fact) => TextSection(fact.title, fact.text))
+        .toList();
   }
 }
