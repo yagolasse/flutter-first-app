@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tourismandco/screens/location_detail/location_detail.dart';
-
-import 'screens/locations/locations.dart';
-
+import 'package:tourismandco/screens/locations/locations.dart';
 import 'style.dart';
 
 const LocationsRoute = '/';
-
 const LocationDetailRoute = '/location_detail';
 
 class App extends StatelessWidget {
@@ -36,6 +33,10 @@ class App extends StatelessWidget {
   ThemeData _theme() {
     return ThemeData(
         appBarTheme: AppBarTheme(textTheme: TextTheme(title: AppBarTextStyle)),
-        textTheme: TextTheme(title: TitleTextStyle, body1: Body1TextStyle));
+        textTheme: TextTheme(
+            title: TitleTextStyle,
+            body1: Body1TextStyle,
+            subtitle: SubTitleTextStyle,
+            caption: CaptionTextStyle));
   }
 }
