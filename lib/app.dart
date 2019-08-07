@@ -36,6 +36,10 @@ class App extends StatelessWidget {
   ThemeData _theme() {
     return ThemeData(
         appBarTheme: AppBarTheme(textTheme: TextTheme(title: AppBarTextStyle)),
-        textTheme: TextTheme(title: TitleTextStyle, body1: Body1TextStyle));
+        textTheme: TextTheme(
+            title: TitleTextStyle,
+            body1: Body1TextStyle,
+            subtitle: SubTitleTextStyle,
+            caption: CaptionTextStyle));
   }
 }
